@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/drawable/ic_baseline_movie.xml" value="0.1445" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1445" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/activity_main_content.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/dashboard_main_content_item_view.xml" value="0.1" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_celebrities.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_movies.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_search.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_series.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/list_item_movie.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.24166666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
