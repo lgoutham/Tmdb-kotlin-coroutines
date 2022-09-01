@@ -1,9 +1,6 @@
 package com.example.tmdb.di
 
-import com.example.tmdb.network.ApiConstants
-import com.example.tmdb.network.ApiKeyInterceptor
-import com.example.tmdb.network.MovieService
-import com.example.tmdb.network.TvSeriesService
+import com.example.tmdb.network.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,5 +44,17 @@ class NetworkModule {
     @Singleton
     fun providesTvSeriesService(retrofit: Retrofit): TvSeriesService {
         return retrofit.create(TvSeriesService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesCelebritiesService(retrofit: Retrofit): CelebritiesService {
+        return retrofit.create(CelebritiesService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesSearchService(retrofit: Retrofit): SearchService {
+        return retrofit.create(SearchService::class.java)
     }
 }

@@ -1,9 +1,11 @@
 package com.example.tmdb.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
@@ -52,6 +54,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         fragment: Fragment
     ) {
         transaction.beginTransaction().replace(container, fragment).commit()
+    }
+
+    protected fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 
 }
