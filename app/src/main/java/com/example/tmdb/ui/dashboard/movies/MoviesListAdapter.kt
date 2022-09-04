@@ -9,9 +9,10 @@ import com.bumptech.glide.Glide
 import com.example.tmdb.R
 import com.example.tmdb.network.ApiConstants
 import com.example.tmdb.response.movies.Movie
+import com.example.tmdb.ui.dashboard.OnItemClick
 import com.example.tmdb.ui.dashboard.viewholder.PosterViewHolder
 
-class MoviesListAdapter(private val context: Context) :
+class MoviesListAdapter(private val context: Context, private val onItemClick: OnItemClick) :
     ListAdapter<Movie, PosterViewHolder>(MovieDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
@@ -25,6 +26,9 @@ class MoviesListAdapter(private val context: Context) :
         val posterPath: String = ApiConstants.POSTER_URL_IMAGE_W300 + movie.posterPath
         Glide.with(context).load(posterPath)
             .into(holder.poster)
+        holder.itemView.setOnClickListener {
+            onItemClick.onItemClick(movie.id)
+        }
     }
 
     class MovieDiffUtil : DiffUtil.ItemCallback<Movie>() {

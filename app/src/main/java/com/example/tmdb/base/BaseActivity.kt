@@ -37,8 +37,9 @@ abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel>(
     protected fun replaceFragment(
         manager: FragmentManager,
         container: Int,
-        fragment: Fragment
+        fragment: Fragment?
     ) {
+        if (fragment == null) return
         manager.beginTransaction().replace(container, fragment).commit()
     }
 

@@ -17,8 +17,12 @@
         android:theme="@style/Theme.Tmdbkotlincoroutines"
         tools:targetApi="31">
         <activity
+            android:name=".ui.details.DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

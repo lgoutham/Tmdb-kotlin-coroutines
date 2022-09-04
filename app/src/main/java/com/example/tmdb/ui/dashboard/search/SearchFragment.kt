@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tmdb.base.BaseFragment
 import com.example.tmdb.databinding.FragmentSearchBinding
+import com.example.tmdb.network.NetworkResult
 import com.example.tmdb.response.search.Result
 import com.example.tmdb.ui.dashboard.viewholder.GridItemSpaceDecoration
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,19 +25,30 @@ class SearchFragment :
     override fun initUI(savedInstanceState: Bundle?) {
         adapter = SearchTrendingListAdapter(this.requireContext())
         model.trending.observe(this) {
-            trendingResults = it.results
-            setTrendingResults(trendingResults)
+            when (it) {
+                is NetworkResult.Success -> {
+                    trendingResults = it.data.results
+                    setTrendingResults(trendingResults)
+                }
+                else -> {}
+            }
         }
         model.search.observe(this) {
-            val adapter = SearchResultListAdapter(this.requireContext())
-            val decoration =
-                GridItemSpaceDecoration(this.requireContext(), 14, 2, RecyclerView.VERTICAL)
-            binding.searchList.adapter = adapter
-            binding.searchList.addItemDecoration(decoration)
-            binding.searchList.layoutManager =
-                GridLayoutManager(this.requireContext(), 2, RecyclerView.VERTICAL, false)
-            adapter.submitList(filter(it.results))
-            binding.trending.visibility = View.GONE
+            val searchResultListAdapter = SearchResultListAdapter(this.requireContext())
+            val decoration = GridItemSpaceDecoration(this.requireContext(), 14, 2, RecyclerView.VERTICAL)
+            when (it) {
+                is NetworkResult.Success -> {
+                    binding.searchList.apply {
+                        adapter = searchResultListAdapter
+                        layoutManager =
+                            GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+                        addItemDecoration(decoration)
+                    }
+                    searchResultListAdapter.submitList(filter(it.data.results))
+                    binding.trending.visibility = View.GONE
+                }
+                else -> {}
+            }
         }
         binding.search.setOnEditorActionListener { view, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {

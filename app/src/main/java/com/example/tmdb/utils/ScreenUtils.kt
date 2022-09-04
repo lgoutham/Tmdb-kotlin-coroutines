@@ -1,10 +1,9 @@
-package com.example.tmdb.utils;
+package com.example.tmdb.utils
 
-import android.content.Context;
+import android.content.Context
 
-public class ScreenUtils {
-
-    public static int convertDpToPx(Context context, float dp) {
-        return (int) (dp * context.getResources().getDisplayMetrics().density);
+object ScreenUtils {
+    fun convertDpToPx(context: Context, dp: Float): Int {
+        return (dp * context.resources.displayMetrics.density).toInt()
     }
 }

@@ -9,9 +9,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.tmdb.R
 import com.example.tmdb.network.ApiConstants
 import com.example.tmdb.response.celebrities.Celebrity
+import com.example.tmdb.ui.dashboard.OnItemClick
 import com.example.tmdb.ui.dashboard.viewholder.CelebrityViewHolder
 
-class TrendingCelebritiesListAdapter(private val context: Context) :
+class TrendingCelebritiesListAdapter(private val context: Context, private val onItemClick: OnItemClick) :
     ListAdapter<Celebrity, CelebrityViewHolder>(
         CelebrityDiffUtil()
     ) {
@@ -35,5 +36,8 @@ class TrendingCelebritiesListAdapter(private val context: Context) :
         val posterPath: String = ApiConstants.POSTER_URL_IMAGE_W185 + celebrity.profile_path
         Glide.with(context).load(posterPath).apply(RequestOptions.circleCropTransform()).into(holder.celebrity)
         holder.knownFor.text = celebrity.known_for_department
+        holder.itemView.setOnClickListener {
+            onItemClick.onItemClick(celebrity.id)
+        }
     }
 }

@@ -5,14 +5,18 @@
       <map>
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/drawable/ic_baseline_movie.xml" value="0.1445" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1445" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/activity_details.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/activity_main_content.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/dashboard_main_content.xml" value="0.10416666666666667" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/dashboard_main_content_item_view.xml" value="0.1" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_celebrities.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_celebrity_details.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_movie_details.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_movies.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_search.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_series.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/fragment_tv_series_detail.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/list_item_movie.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/list_item_popular_celebrity.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lgout/AndroidStudioProjects/Tmdbkotlincoroutines/app/src/main/res/layout/list_item_search.xml" value="0.3333333333333333" />
