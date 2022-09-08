@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.tmdb.R
+import com.example.tmdb.databinding.ListItemMovieBinding
 import com.example.tmdb.network.ApiConstants
 import com.example.tmdb.response.tvseries.TvSeries
 import com.example.tmdb.ui.dashboard.OnItemClick
@@ -17,17 +18,20 @@ class SeriesListAdapter(private val context: Context, private val onItemClick: O
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         return PosterViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.list_item_movie, parent, false)
+            ListItemMovieBinding.inflate(LayoutInflater.from(context), parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val series = getItem(position)
-        val posterPath: String = ApiConstants.POSTER_URL_IMAGE_W300 + series.posterPath
-        Glide.with(context).load(posterPath)
-            .into(holder.poster)
-        holder.itemView.setOnClickListener {
-            onItemClick.onItemClick(series.id)
+        with(holder) {
+            with(getItem(position)) {
+                val posterPath: String = ApiConstants.POSTER_URL_IMAGE_W300 + posterPath
+                Glide.with(context).load(posterPath)
+                    .into(binding.poster)
+                holder.itemView.setOnClickListener {
+                    onItemClick.onItemClick(id)
+                }
+            }
         }
     }
 
