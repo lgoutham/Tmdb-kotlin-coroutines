@@ -1,13 +1,13 @@
 package com.example.tmdb.ui.dashboard.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.tmdb.base.BaseViewModel
 import com.example.tmdb.network.NetworkResult
 import com.example.tmdb.repository.SearchRepository
 import com.example.tmdb.response.search.SearchResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,20 +15,26 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(private val searchRepository: SearchRepository) :
     BaseViewModel() {
 
-    private var _search: MutableLiveData<NetworkResult<SearchResponse>> = MutableLiveData()
-    val search: LiveData<NetworkResult<SearchResponse>> = _search
-    private var _trending: MutableLiveData<NetworkResult<SearchResponse>> = MutableLiveData()
-    val trending: LiveData<NetworkResult<SearchResponse>> = _trending
+    private var _search: MutableStateFlow<NetworkResult<SearchResponse>> =
+        MutableStateFlow(NetworkResult.Empty)
+    val search: StateFlow<NetworkResult<SearchResponse>> = _search
+    private var _trending: MutableStateFlow<NetworkResult<SearchResponse>> =
+        MutableStateFlow(NetworkResult.Empty)
+    val trending: StateFlow<NetworkResult<SearchResponse>> = _trending
 
     init {
         viewModelScope.launch {
-            _trending.postValue(searchRepository.getTrendingAllWeek())
+            searchRepository.getTrendingAllWeek().collect {
+                _trending.value = it
+            }
         }
     }
 
     fun getSearchResults(query: String) {
         viewModelScope.launch {
-            _search.postValue(searchRepository.getSearchResults(query))
+            searchRepository.getSearchResults(query).collect {
+                _search.value = it
+            }
         }
     }
 }

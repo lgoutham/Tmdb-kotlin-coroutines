@@ -1,22 +1,20 @@
 package com.example.tmdb.repository
 
 import com.example.tmdb.network.MovieService
-import com.example.tmdb.network.NetworkResult
-import com.example.tmdb.response.movies.MovieResponse
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(private val movieService: MovieService) :
     BaseRepository() {
 
-    suspend fun getNowPlayingMovies(): NetworkResult<MovieResponse> =
+    suspend fun getNowPlayingMovies() =
         safeApiCall { movieService.getNowPlayingMovies() }
 
-    suspend fun getUpcomingMovies(): NetworkResult<MovieResponse> =
+    suspend fun getUpcomingMovies() =
         safeApiCall { movieService.getUpcomingMovies() }
 
-    suspend fun getPopularMovies(): NetworkResult<MovieResponse> =
+    suspend fun getPopularMovies() =
         safeApiCall { movieService.getPopularMovies() }
 
-    suspend fun getTopRatedMovies(): NetworkResult<MovieResponse> =
+    suspend fun getTopRatedMovies() =
         safeApiCall { movieService.getTopRatedMovies() }
 }
